@@ -43,6 +43,7 @@ if(isset($_GET['logout'])) {
 
   <!-- Page Wrapper -->
   <div id="wrapper">
+    
 
   
 
@@ -53,7 +54,7 @@ if(isset($_GET['logout'])) {
       <div id="content">
 
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-6 static-top shadow">
+        <nav class="navbar navbar-expand navbar-light bg-danger topbar mb-6 static-top shadow">
 
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -70,7 +71,7 @@ if(isset($_GET['logout'])) {
         
 
   <div class="container">
-
+  
     <!-- Outer Row -->
     <div class="row justify-content-center animated--grow-in">
 
@@ -146,21 +147,9 @@ if(isset($_GET['logout'])) {
     }
   }
 ?>
-                    <input type="submit" onclick="return confirm('Kirim Pengaduan ini ?');" name="pengaduan" value="Kirim" class="btn btn-primary btn-user btn-block">
+                    <input type="submit"  onclick="return confirm('Kirim Pengaduan ini ?');" name="pengaduan" value="Kirim" class="btn btn-primary btn-user btn-block bg-danger">
                   </form>
                   <hr>
-                </div>
-              </div>
-              <div class="col-lg-3 bg-light container">
-                <div class="p-3">
-                      <div class="small mt-5">
-                        <p align="left" class="text-grey mt-4"><li>Gunakanlah Kalimat yang baku dan benar.</li></p>
-                        <p align="left" class="text-grey"><li>Pengaduan Wajib menyertakan Bukti Gambar.</li></p>
-                        <p align="left" class="text-grey"><li>Pengaduan hanya bisa dikirim satu kali dalam 24 Jam.</li></p>
-                        <p align="left" class="text-grey mb-4"><li>Pengaduan yang tidak valid, tidak akan diproses oleh petugas.</li></p>
-                        <p align="left" class="text-grey"><li>Pastikan Pengaduan yang anda kirim adalah masalah yang Valid.</li></p>
-                        <p align="left" class="text-grey mb-4"><li>Berikanlah Keterangan yang Jelas sebelum mengirim Pengaduan.</li></p>
-                      </div>
                 </div>
               </div>
             </div>
@@ -179,10 +168,10 @@ if(isset($_GET['logout'])) {
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
+      <footer class="sticky-footer bg-danger">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Sutan Kumala 2019</span>
+            <span class="white-link">Copyright &copy; ANY 2021</span>
           </div>
         </div>
       </footer>
