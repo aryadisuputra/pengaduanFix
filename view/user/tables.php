@@ -155,17 +155,6 @@ if(isset($_GET['logout'])) {
                       <th>Tanggapan</th>
                     </tr>
                   </thead>
-                  <tfoot>
-                    <tr>
-                      <th>ID</th>
-                      <th>Tanggal</th>
-                      <th>NIK</th>
-                      <th>Isi</th>
-                      <th>Foto</th>
-                      <th>Status</th>
-                      <th>Tanggapan</th>
-                    </tr>
-                  </tfoot>
                   <tbody>
 <?php
   $nikuser = $data['nik'];
@@ -189,7 +178,7 @@ if(isset($_GET['logout'])) {
                         echo "Belum Diproses";
                       }
                       ?></td>
-                      <td><?php
+                      <!-- <td><?php
                       $sts = $keluar['status'];
                       if($sts=="selesai"){
                         echo "<a href=\"?id_pengaduan=".base64_encode($keluar['id_pengaduan'])."\">Lihat Tanggapan</a>";
@@ -198,7 +187,7 @@ if(isset($_GET['logout'])) {
                       }else{
                         echo "Belum Ditanggapi";
                       }
-                      ?></td>
+                      ?></td> -->
                     </tr>
 <?php
 }

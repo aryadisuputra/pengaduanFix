@@ -78,6 +78,12 @@ if(isset($_GET['logout'])) {
       <div class="sidebar-heading">
         Addons
       </div>
+       <!-- Nav Item - Tables -->
+       <li class="nav-item active">
+        <a class="nav-link" href="tables.php">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Riwayat Pengaduan</span></a>
+      </li>
 
 
       <!-- Divider -->

@@ -203,6 +203,7 @@ if($data['level']=="admin"){
                       <th>NIK</th>
                       <th>Isi</th>
                       <th>Foto</th>
+                      <th>Aksi</th>
                     </tr>
                   </thead>
                  
@@ -218,6 +219,7 @@ if($data['level']=="admin"){
                       <td><?php echo $keluar['nik'];?></td>
                       <td><?php echo $keluar['isi_laporan'];?></td>
                       <td align="Center"><img src="../../file_upload/<?php echo $keluar['foto'];?>" style="width: 100px;height: auto;"></td>
+                      <td><a href="tanggapan.php?tanggapi=<?php echo $keluar['id_pengaduan'];?>" class="btn btn-primary">Tanggapi <span class="fas fa-fw fa-pen"></span></a></td>
                     </tr>
 <?php
 }

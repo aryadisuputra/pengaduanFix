@@ -9,9 +9,13 @@ if(isset($_GET['logout'])) {
 if(isset($_GET['proses_selesai'])){
   proses_selesai($_GET['proses_selesai'], $_GET['nik']);
 }
-if(isset($_GET['hapus_pengaduan'])){
-  hapus_pengaduan($_GET['hapus_pengaduan']);
+if(isset($_GET['sedang_diproses'])){
+  sedang_diproses($_GET['sedang_diproses'], $_GET['nik']);
 }
+if(isset($_GET['rejected'])){
+  rejected($_GET['rejected'], $_GET['nik']);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -202,22 +206,14 @@ if(isset($_GET['berhasil'])){
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>ID</th>
+                      <th>No</th>
                       <th>Tanggal</th>
                       <th>NIK</th>
                       <th>Isi</th>
                       <th>Foto</th>
+                      <th>Aksi</th>
                     </tr>
                   </thead>
-                  <tfoot>
-                    <tr>
-                      <th>ID</th>
-                      <th>Tanggal</th>
-                      <th>NIK</th>
-                      <th>Isi</th>
-                      <th>Foto</th>
-                    </tr>
-                  </tfoot>
                   <tbody>
 <?php
   $out = mysqli_query($koneksi, "SELECT * FROM pengaduan ");
@@ -231,83 +227,11 @@ if(isset($_GET['berhasil'])){
                       <td><?php echo $keluar['isi_laporan'];?></td>
                       <td align="Center"><img src="../../file_upload/<?php echo $keluar['foto'];?>" style="width: 100px;height: auto;"></td>
                       <td><?php echo $keluar['status'];?></td>
+                      <td><a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?rejected=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-success">Rejected</a></td>
                       <td><a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?proses_selesai=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-success">Proses Selesai</a></td>
-                    </tr>
-<?php
-}
-?>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!-- /.container-fluid -->
-<hr/>
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
-
-          <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-success-800">Selesai</h1>
-
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4 animated--grow-in">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-success">Tabel Pengaduan Telah Selesai</h6>
-            </div>
-            <div class="card-body">
-<?php
-if(isset($_GET['berhasil'])){
-  if($_GET['berhasil']=="proses_hapus"){
-?>
-                    <div class="form-group">
-                      <div class="small">
-                        <center><b align="center" class="text-warning">1 Pengaduan berhasil dihapus !</b></center>
-                      </div>
-                    </div>
-<?php
-  }
-}
-?>
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Tanggal</th>
-                      <th>NIK</th>
-                      <th>Isi</th>
-                      <th>Foto</th>
-                      <th>Status</th>
-                      <th>Aksi</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th>ID</th>
-                      <th>Tanggal</th>
-                      <th>NIK</th>
-                      <th>Isi</th>
-                      <th>Foto</th>
-                      <th>Status</th>
-                      <th>Aksi</th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
-<?php
-  $out = mysqli_query($koneksi, "SELECT * FROM pengaduan where status='selesai'");
-  while($keluar = mysqli_fetch_array($out)){
-?>
-
-                    <tr>
-                      <td><?php echo $keluar['id_pengaduan'];?></td>
-                      <td><?php echo $keluar['tgl_pengaduan'];?></td>
-                      <td><?php echo $keluar['nik'];?></td>
-                      <td><?php echo $keluar['isi_laporan'];?></td>
-                      <td align="Center"><img src="../../file_upload/<?php echo $keluar['foto'];?>" style="width: 100px;height: auto;"></td>
-                      <td><p class="text-success"><b>SELESAI</b></p></td>
-                      <td><a onclick="return confirm('Yakin ingin Menghapus Pengaduan ? \n ID Pengaduan : <?php echo $keluar['id_pengaduan'];?>');" href="?hapus_pengaduan=<?php echo $keluar['id_pengaduan'];?>" class="btn btn-danger"><span class="fas fa-fw fa-trash"></span></a></td>
+                      <td><a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?sedang_diproses=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-success">Sedang Diproses</a></td>
+                      
+                      
                     </tr>
 <?php
 }
@@ -321,7 +245,6 @@ if(isset($_GET['berhasil'])){
         </div>
         <!-- /.container-fluid -->
 
-      </div>
       <!-- End of Main Content -->
 
       <!-- Footer -->

@@ -193,7 +193,7 @@ echo $nik;
 		header("Location:?tanggapi=$id_pengaduan&berhasil=duplikat");
 	}else{
 		$masukan_tanggapan = mysqli_query($koneksi, "INSERT INTO tanggapan (id_pengaduan, tgl_tanggapan, tanggapan, id_petugas) values ('$id_pengaduan', '$tgl', '$tanggapan', '$id_petugas')") or die ("<h1>ILEGAL TEXT DETECTED !</h1><b>TERJADI KESALAHAN PADA SISTEM HARAP HUBUNGI ADMINISTRATOR</b>");
-		$update_status = mysqli_query($koneksi, "UPDATE pengaduan set status='proses' where id_pengaduan='$id_pengaduan'");
+		$update_status = mysqli_query($koneksi, "UPDATE pengaduan set status='Finish' where id_pengaduan='$id_pengaduan'");
 		$isi_notifikasi = "Pengaduan anda dengan ID: ".$id_pengaduan." telah ditanggapi oleh Petugas.";
 		$send_notif = mysqli_query($koneksi, "INSERT INTO notifikasi (nik, notifikasi, tgl) VALUES ('$nik', '$isi_notifikasi', '$tgl')");
 		header("Location:?tanggapi=$id_pengaduan&berhasil=tanggapi");
@@ -203,12 +203,30 @@ function proses_selesai($id, $nik)
 {
 	global $koneksi;
 	global $tgl;
-	$proses = mysqli_query($koneksi, "UPDATE pengaduan set status='selesai' where id_pengaduan='$id'") or die ("Terjadi Kesalahan");
-	$isi_notifikasi = "Pengaduan anda dengan ID: ".$id." telah Selesai diproses.";
+	$proses = mysqli_query($koneksi, "UPDATE pengaduan set status='Finish' where id_pengaduan='$id'") or die ("Terjadi Kesalahan");
 	$send_notif = mysqli_query($koneksi, "INSERT INTO notifikasi (nik, notifikasi, tgl) VALUES ('$nik', '$isi_notifikasi', '$tgl')");
 	header("Location:?berhasil=proses_oke");
 	return $proses;
 }
+function sedang_diproses($id, $nik)
+{
+	global $koneksi;
+	global $tgl;
+	$diproses = mysqli_query($koneksi, "UPDATE pengaduan set status='On Going' where id_pengaduan='$id'") or die ("Terjadi Kesalahan");
+	$send_notif = mysqli_query($koneksi, "INSERT INTO notifikasi (nik, notifikasi, tgl) VALUES ('$nik', '$isi_notifikasi', '$tgl')");
+	header("Location:?berhasil=proses_oke");
+	return $diproses;
+}
+function rejected($id, $nik)
+{
+	global $koneksi;
+	global $tgl;
+	$rejected = mysqli_query($koneksi, "UPDATE pengaduan set status='Rejected' where id_pengaduan='$id'") or die ("Terjadi Kesalahan");
+	$send_notif = mysqli_query($koneksi, "INSERT INTO notifikasi (nik, notifikasi, tgl) VALUES ('$nik', '$isi_notifikasi', '$tgl')");
+	header("Location:?berhasil=proses_oke");
+	return $rejected;
+}
+
 function hapus_pengaduan($id)
 {
 	global $koneksi;
