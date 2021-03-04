@@ -54,12 +54,18 @@ if(isset($_GET['logout'])) {
       <div id="content">
 
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-danger topbar mb-6 static-top shadow">
-
-          <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
+          <!-- <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: red;">
+            <div class="container-md">
+              <a class="navbar-brand" href="#">PENGADUAN ONLINE</a>
+            </div> -->
+          <!-- </nav> -->
+   
+<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #d30404;">
+  <div class="container-fluid">
+    <h1><span class="navbar-brand mb-0 h1">PENGADUAN ONLINE</span></h1>
+    <span class="navbar-brand mb-0 h1">BANTUAN</span>
+  </div>
+</nav>
 
   
 
@@ -72,42 +78,42 @@ if(isset($_GET['logout'])) {
 
   <div class="container">
   
-    <!-- Outer Row -->
-    <div class="row justify-content-center animated--grow-in">
+  
+
 
       <div class="col-xl col-lg col-md">
-
         <div class="card o-hidden border-0">
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
             <div class="row">
               <div class="col-lg">
                 <div class="p-5">
+                <span class="d-block p-2 text-white"style="background-color: #d30404;">Sampaikan Laporan Anda</span>
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Buat Pengaduan !</h1>
                   </div>
                   <form method="post" action="" enctype="multipart/form-data">
+                  <h6>Pilih Tipe Laporan</h6>
                   <td>
-                    <label><input type="radio" name="tujuan" value="1" >Pengaduan</label>
-                    <label><input type="radio" name="tujuan" value="2" >Aspirasi</label>
-                    <label><input type="radio" name="tujuan" value="3" >Permintaan Informasi</label>
+                    <label class="btn btn-outline-danger" for="danger-outlined"><input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off" name="tujuan" value="1" >Pengaduan</label>
+                    <label class="btn btn-outline-danger" for="danger-outlined"><input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off" name="tujuan" value="2" >Aspirasi</label>
+                    <label class="btn btn-outline-danger" for="danger-outlined"><input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off" name="tujuan" value="3" >Permintaan Informasi</label>
                   </td>
+                  <h6>Perhatikan Cara Menyampaikan PENGADUAN Yang Baik dan Benar</h6>
                     <div class="form-group">
-                    
-                    <small>NIK</small>
-                      <input type="text" required="required" name="nik" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp"  value="" placeholder="NIK">
+                      <input type="text" required="required" name="nik" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp"  value="" placeholder="Ketik NIK Anda *">
+                    </div class="form-group">
+                    <div>
+                      <input type="text" required="required" name="judul" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp"  value="" placeholder="Ketik Judul Laporan Anda *">
                     </div>
-                    <small>Judul</small>
-                      <input type="text" required="required" name="judul" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp"  value="" placeholder="judul">
+                    <div class="form-group">
+                      <textarea type="text" required="required" name="isi" class="form-control form-control-user" id="exampleInputPassword" placeholder="Ketik Isi Laporan Anda *"></textarea>
                     </div>
                     <hr/>
+                    
                     <div class="form-group">
-                      <small>Unggah Bukti Gambar (Wajib) &nbsp;</small><input required="required" type="file" name="gambar" class="btn btn-primary" />
+                     <input required="required" type="file" name="gambar" class="btn btn-secondary" />
                     </div>
-                    <div class="form-group">
-                      <small>*Anda hanya bisa mengajukan satu Pengaduan dalam sehari</small>
-                      <textarea type="text" required="required" name="isi" class="form-control form-control-user" id="exampleInputPassword" placeholder="Isi Masalah"></textarea>
-                    </div>
+
 <?php
   if(isset($_GET['berhasil'])){
     if($_GET['berhasil']=="ajukan"){
@@ -147,7 +153,7 @@ if(isset($_GET['logout'])) {
     }
   }
 ?>
-                    <input type="submit"  onclick="return confirm('Kirim Pengaduan ini ?');" name="pengaduan" value="Kirim" class="btn btn-primary btn-user btn-block bg-danger">
+                    <input type="submit"  onclick="return confirm('Kirim Pengaduan ini ?');" name="pengaduan" value="Lapor" class="btn btn-primary btn-user btn-block"style="background-color: #d30404;">
                   </form>
                   <hr>
                 </div>
@@ -168,10 +174,10 @@ if(isset($_GET['logout'])) {
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-danger">
+      <footer class="sticky-footer"style="background-color: #d30404;">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span class="white-link">Copyright &copy; ANY 2021</span>
+            <span>Copyright &copy; ANY 2021</span>
           </div>
         </div>
       </footer>
@@ -183,29 +189,7 @@ if(isset($_GET['logout'])) {
   </div>
   <!-- End of Page Wrapper -->
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="?logout">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
