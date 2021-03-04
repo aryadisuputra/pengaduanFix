@@ -96,18 +96,20 @@ function register_petugas($namas, $usrnms, $passs, $telps, $levels)
 	}
 	return $register;
 }
-function ajukan($nik, $path, $filename, $isis)
+function ajukan($nik, $path, $filename, $isis, $tujuan, $judul)
 {
  
  global $koneksi;
  global $tgl;
  $nik = htmlspecialchars($nik);
  $isi = htmlspecialchars($isis);
-//  echo "INSERT INTO pengaduan (tgl_pengaduan, nik, isi_laporan, foto, status) VALUES 
-//  ('$tgl', '$nik', '$isi', '$filename', '1')";
+ $tujuan = htmlspecialchars($tujuan);
+ $judul = htmlspecialchars($judul);
+//  echo "INSERT INTO pengaduan (tgl_pengaduan, nik, isi_laporan, foto, status, tujuan, judul) VALUES 
+//  ('$tgl', '$nik', '$isi', '$filename', '1', $tujuan, $judul)";
 //  die();
- $adukan = mysqli_query($koneksi, "INSERT INTO pengaduan (tgl_pengaduan, nik, isi_laporan, foto, status) VALUES 
- ('$tgl', '$nik', '$isi', '$filename', '1')") or die ("<h1>ILEGAL TEXT DETECTED !</h1><b>TERJADI KESALAHAN PADA SISTEM HARAP HUBUNGI ADMINISTRATOR</b>");
+ $adukan = mysqli_query($koneksi, "INSERT INTO pengaduan (tgl_pengaduan, nik, isi_laporan, foto, status, tujuan, judul) VALUES 
+ ('$tgl', '$nik', '$isi', '$filename', '1', '$tujuan', '$judul')") or die ("<h1>ILEGAL TEXT DETECTED !</h1><b>TERJADI KESALAHAN PADA SISTEM HARAP HUBUNGI ADMINISTRATOR</b>");
  $isi_notifikasi = "Pengaduan anda Berhasil dikirim dan segera diproses oleh Petugas.";
  header("Location:?berhasil=ajukan");
    

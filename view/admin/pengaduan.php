@@ -220,7 +220,7 @@ if(isset($_GET['berhasil'])){
                   </tfoot>
                   <tbody>
 <?php
-  $out = mysqli_query($koneksi, "SELECT * FROM pengaduan where status='proses'");
+  $out = mysqli_query($koneksi, "SELECT * FROM pengaduan ");
   while($keluar = mysqli_fetch_array($out)){
 ?>
 
@@ -230,6 +230,7 @@ if(isset($_GET['berhasil'])){
                       <td><?php echo $keluar['nik'];?></td>
                       <td><?php echo $keluar['isi_laporan'];?></td>
                       <td align="Center"><img src="../../file_upload/<?php echo $keluar['foto'];?>" style="width: 100px;height: auto;"></td>
+                      <td><?php echo $keluar['status'];?></td>
                       <td><a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?proses_selesai=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-success">Proses Selesai</a></td>
                     </tr>
 <?php
