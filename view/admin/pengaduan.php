@@ -115,7 +115,7 @@ if(isset($_GET['rejected'])){
 
        <!-- Nav Item - Tables -->
        <li class="nav-item">
-        <a class="nav-link" href="tables.php">
+        <a class="nav-link" href="informasi.php">
           <i class="fas fa-fw fa-table"></i>
           <span>Permintaan Informasi</span></a>
       </li>
@@ -186,7 +186,7 @@ if($data['level']=="admin"){
           <!-- DataTales Example -->
           <div class="card shadow mb-4 animated--grow-in">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Tabel Pengaduan Diproses</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Data Pengaduan</h6>
             </div>
             <div class="card-body">
 <?php
@@ -203,15 +203,15 @@ if(isset($_GET['berhasil'])){
 }
 ?>
               <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table ">
                   <thead>
                     <tr>
-                      <th>No</th>
-                      <th>Tanggal</th>
-                      <th>NIK</th>
-                      <th>Isi</th>
-                      <th>Foto</th>
-                      <th>Aksi</th>
+                      <th scope="col">No</th>
+                      <th scope="col">Tanggal</th>
+                      <th scope="col">NIK</th>
+                      <th scope="col">Isi</th>
+                      <th scope="col">Foto</th>
+                      <th scope="col">Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
