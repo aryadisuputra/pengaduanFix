@@ -60,18 +60,14 @@ if(isset($_GET['rejected'])){
 
       <!-- Nav Item - User Information -->
       <li class="nav-item dropdown no-arrow justify-content-center">
-              <a class="nav-link dropdown-toggle " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 animated--grow-in d-lg-inline text-gray-600 justify-content-center"><i class="fas fa-user fa-fw mr-2 text-gray-400"></i> <?= $data['nama_petugas'];?></span>
+              <a class="nav-link dropdown-toggle justify-content-center " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                <span class="mr-2 animated--grow-in d-lg-inline text-gray-600 justify-content-center"><i class=" pl-5"></i> <?= $data['nama_petugas'];?></span>
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="profil.php">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profil
-                </a>
-                <a onclick="dark();" class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Tema Gelap (Beta)
+                  Edit Profil
                 </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
@@ -178,15 +174,15 @@ if($data['level']=="admin"){
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
+        <div class="container-fluid mt-5">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-primary-800">Diproses</h1>
+          <h1 class="h3 mb-2 text-primary-800">Data Pengaduan</h1>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4 animated--grow-in">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Data Pengaduan</h6>
+              <h6 class="m-0 font-weight-bold text-primary">print</h6>
             </div>
             <div class="card-body">
 <?php
@@ -203,36 +199,40 @@ if(isset($_GET['berhasil'])){
 }
 ?>
               <div class="table-responsive">
-                <table class="table ">
-                  <thead>
+              <table class="table" id="dataTable" width="95%" cellspacing="0">
+                <thead>
                     <tr>
-                      <th scope="col">No</th>
-                      <th scope="col">Tanggal</th>
-                      <th scope="col">NIK</th>
-                      <th scope="col">Isi</th>
-                      <th scope="col">Foto</th>
-                      <th scope="col">Aksi</th>
+                      <th>No</th>
+                      <th>ID</th>
+                      <th>Tanggal</th>
+                      <th>NIK</th>
+                      <th>Isi</th>
+                      <th>Foto</th>
+                      <th>Status</th>
+                      <th>Aksi</th>
                     </tr>
                   </thead>
+            
                   <tbody>
-<?php
-  $out = mysqli_query($koneksi, "SELECT * FROM pengaduan ");
+                  <?php
+  $out = mysqli_query($koneksi, "SELECT * FROM pengaduan WHERE tujuan='1'");
   while($keluar = mysqli_fetch_array($out)){
 ?>
 
+
                     <tr>
+                      <td><?php echo $keluar['id_pengaduan'];?></td>
                       <td><?php echo $keluar['id_pengaduan'];?></td>
                       <td><?php echo $keluar['tgl_pengaduan'];?></td>
                       <td><?php echo $keluar['nik'];?></td>
                       <td><?php echo $keluar['isi_laporan'];?></td>
                       <td align="Center"><img src="../../file_upload/<?php echo $keluar['foto'];?>" style="width: 100px;height: auto;"></td>
                       <td><?php echo $keluar['status'];?></td>
-                      <td><a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?rejected=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-success">Rejected</a></td>
-                      <td><a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?proses_selesai=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-success">Proses Selesai</a></td>
-                      <td><a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?sedang_diproses=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-success">Sedang Diproses</a></td>
-                      
-                      
-                    </tr>
+                      <td>
+                        <a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?rejected=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>"  class="btn btn-success">Rejected</a>
+                        <a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?proses_selesai=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-success">Proses Selesai</a>
+                        <a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?sedang_diproses=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-success">Sedang Diproses</a>
+                      </td>
 <?php
 }
 ?>

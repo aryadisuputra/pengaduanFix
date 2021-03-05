@@ -6,6 +6,15 @@ auth_petugas();
 if(isset($_GET['logout'])) {
   logout();
 }
+if(isset($_GET['proses_selesai'])){
+  proses_selesai($_GET['proses_selesai'], $_GET['nik']);
+}
+if(isset($_GET['sedang_diproses'])){
+  sedang_diproses($_GET['sedang_diproses'], $_GET['nik']);
+}
+if(isset($_GET['rejected'])){
+  rejected($_GET['rejected'], $_GET['nik']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,20 +69,16 @@ if(isset($_GET['logout'])) {
         
       </a>
 
-  <!-- Nav Item - User Information -->
-      <li class="nav-item dropdown no-arrow justify-content-center">
-              <a class="nav-link dropdown-toggle " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 animated--grow-in d-lg-inline text-gray-600 justify-content-center"><i class="fas fa-user fa-fw mr-2 text-gray-400"></i> <?= $data['nama_petugas'];?></span>
+   <!-- Nav Item - User Information -->
+   <li class="nav-item dropdown no-arrow justify-content-center">
+              <a class="nav-link dropdown-toggle justify-content-center " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                <span class="mr-2 animated--grow-in d-lg-inline text-gray-600 justify-content-center"><i class=" pl-5"></i> <?= $data['nama_petugas'];?></span>
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="profil.php">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profil
-                </a>
-                <a onclick="dark();" class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Tema Gelap (Beta)
+                  Edit Profil
                 </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
@@ -82,6 +87,7 @@ if(isset($_GET['logout'])) {
                 </a>
               </div>
             </li>
+
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
@@ -181,48 +187,52 @@ if($data['level']=="admin"){
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
+        <div class="container-fluid mt-5">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-grey-800">Tabel</h1>
+          <h1 class="h3 mb-2 text-grey-800">Data Aspirasi</h1>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4 animated--grow-in">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary d-print-none">Tabel Pengaduan Masyarakat</h6>
+            <div class="card-header py-3 ">
+              <h6 class="m-0 font-weight-bold text-primary d-print-none">Print</h6>
             </div>
             <div class="card-body">
-              <div class="table-responsive">
-                <table class="table">
-                  <thead>
-
-
+            <div class="table-responsive">
+              <table class="table" id="dataTable" width="95%" cellspacing="0">
+                <thead>
                     <tr>
-                      <th scope="col">ID</th>
-                      <th scope="col">Tanggal</th>
-                      <th scope="col">NIK</th>
-                      <th scope="col">Isi</th>
-                      <th scope="col">Foto</th>
-                      <th scope="col">Aksi</th>
+                      <th>No</th>
+                      <th>ID</th>
+                      <th>Tanggal</th>
+                      <th>NIK</th>
+                      <th>Isi</th>
+                      <th>Foto</th>
+                      <th>Status</th>
+                      <th>Aksi</th>
                     </tr>
                   </thead>
-                 
-               
-  <tbody>
-<?php
-  $out = mysqli_query($koneksi, "SELECT * FROM pengaduan ");
+            
+                  <tbody>
+                  <?php
+  $out = mysqli_query($koneksi, "SELECT * FROM pengaduan WHERE tujuan='1'");
   while($keluar = mysqli_fetch_array($out)){
 ?>
 
 
                     <tr>
                       <td><?php echo $keluar['id_pengaduan'];?></td>
+                      <td><?php echo $keluar['id_pengaduan'];?></td>
                       <td><?php echo $keluar['tgl_pengaduan'];?></td>
                       <td><?php echo $keluar['nik'];?></td>
                       <td><?php echo $keluar['isi_laporan'];?></td>
                       <td align="Center"><img src="../../file_upload/<?php echo $keluar['foto'];?>" style="width: 100px;height: auto;"></td>
-                      <td><a href="tanggapan.php?tanggapi=<?php echo $keluar['id_pengaduan'];?>" class="btn btn-primary">Tanggapi <span class="fas fa-fw fa-pen"></span></a></td>
-                    </tr>
+                      <td><?php echo $keluar['status'];?></td>
+                      <td>
+                        <a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?rejected=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>"  class="btn btn-success">Rejected</a>
+                        <a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?proses_selesai=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-success">Proses Selesai</a>
+                        <a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?sedang_diproses=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-success">Sedang Diproses</a>
+                      </td>
 <?php
 }
 ?>
@@ -288,7 +298,14 @@ if($data['level']=="admin"){
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
 
- <script>
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/datatables-demo.js"></script>
+
+ <!-- <script>
 $(document).ready(function() {
     $('#dataTable').DataTable( {
         dom: 'Bfrtip',
@@ -298,9 +315,9 @@ $(document).ready(function() {
     } );
 } );
 
-</script>
+</script> -->
 
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.flash.min.js"></script>
@@ -308,7 +325,7 @@ $(document).ready(function() {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script> -->
 
 </body>
 
