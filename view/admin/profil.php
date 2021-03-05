@@ -78,12 +78,13 @@ $sql = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM petugas WHERE id
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
-       <!-- Nav Item - Dashboard -->
-       <li class="nav-item pl-5">
-        <a class="nav-link">
-        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400">
-          <a href="index.php"><button class="btn text-white "><b>Dashboard</b></button></a>
-          </i>
+
+       <!-- Nav Item - Tables -->
+       <li class="nav-item mt-5">
+          <a class="nav-link text-white " href="index.php" >
+            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+            Dashboard
+          </a>
       </li>
     </ul>
     <!-- End of Sidebar -->
