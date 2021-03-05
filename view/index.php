@@ -37,10 +37,12 @@ if(isset($_POST['login'])){
 
 <body class="bg-register-image">
 <div style="position: absolute;top: 0;bottom: 0;left: 0;right: 0;"></div>
-  <div class="container">
-  
-
-    <!-- Outer Row -->
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-md-auto">
+       <!-- Outer Row -->
     <div class="row justify-content-center">
       <div class="d-flex justify-content-end">
         <div class="card o-hidden border-0 shadow-lg my-5">
@@ -117,6 +119,15 @@ if(isset($_POST['login'])){
 
     </div>
   </div>
+    </div>
+    <div class="col col-lg-2">
+      3 of 3
+    </div>
+  </div>
+</div>
+  
+
+   
 
 <!-- POP UP UPDATE PROGRAM (Hapus jika mengganggu) -->
 <!-- <script type="text/javascript">window.onload = function(){document.getElementById('tombol').click();}</script>
