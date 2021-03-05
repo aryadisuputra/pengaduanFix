@@ -43,10 +43,6 @@ if(isset($_GET['logout'])) {
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-    
-
-  
-
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
@@ -70,9 +66,6 @@ if(isset($_GET['logout'])) {
   
 
 
-        <!-- Topbar Navbar -->
-<?php include("header/topbar.php");?>
-        <!-- End of Topbar -->
 
         
 
@@ -94,9 +87,9 @@ if(isset($_GET['logout'])) {
                   <form method="post" action="" enctype="multipart/form-data">
                   <h6>Pilih Tipe Laporan</h6>
                   <td>
-                    <label class="btn btn-outline-danger" for="danger-outlined"><input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off" name="tujuan" value="1" >Pengaduan</label>
-                    <label class="btn btn-outline-danger" for="danger-outlined"><input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off" name="tujuan" value="2" >Aspirasi</label>
-                    <label class="btn btn-outline-danger" for="danger-outlined"><input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off" name="tujuan" value="3" >Permintaan Informasi</label>
+                    <label class="btn btn-outline-danger" for="danger-outlined"><input type="radio" class="btn-check" name="tujuan" value="1" >Pengaduan</label>
+                    <label class="btn btn-outline-danger" for="danger-outlined"><input type="radio" class="btn-check" name="tujuan" value="2" >Aspirasi</label>
+                    <label class="btn btn-outline-danger" for="danger-outlined"><input type="radio" class="btn-check" name="tujuan" value="3" >Permintaan Informasi</label>
                   </td>
                   <h6>Perhatikan Cara Menyampaikan PENGADUAN Yang Baik dan Benar</h6>
                     <div class="form-group">
