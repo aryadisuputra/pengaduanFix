@@ -49,9 +49,22 @@ if(isset($_POST['ubah_petugas'])){
 </head>
 
 <body class="bg-gradient-primary">
+ <!-- Page Wrapper -->
+ <div id="wrapper">
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content" mb-5>   
+        <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #d30404;">
+          <div class="container-fluid">
+          <img src="img/pengaduan_online.png" class="img-fluid" >
+          <img src="img/bantuan.png" class="img-fluid" >
+            <!-- <span class="navbar-brand mb-0 h1">BANTUAN</span> -->
+          </div>
+        </nav>
 
 <div class="shadow fixed-left bg-light card" style="display: inline;position: fixed;padding: 8px;">
-  <a href="index.php"><button class="btn btn-primary"><b>Dashboard</b></button></a>
+  <a href="index.php"><button class="btn text-white "style="background-color: #d30404;"><b>Dashboard</b></button></a>
 </div>
   <div class="container">
 
@@ -143,7 +156,7 @@ if(isset($_GET['berhasil'])){
   }
 }
 ?>
-                    <input type="submit" name="register_petugas" value="Buat Akun" class="btn btn-primary btn-user btn-block">
+                    <input type="submit" name="register_petugas" value="Buat Akun" class="btn btn-user text-white btn-block"style="background-color: #d30404;">
                   </form>
                 </div>
               </div>
@@ -212,7 +225,7 @@ if(isset($_GET['ubah_petugas'])){?>
           <!-- DataTales Example -->
           <div class="card shadow mb-4 animated--grow-in">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Tabel Petugas</h6>
+              <h6 class="m-0 font-weight-bold text-danger ">Tabel Petugas</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -247,7 +260,7 @@ if(isset($_GET['ubah_petugas'])){?>
                         <?php }else{ ?>
                           <a onclick="return confirm('Yakin ingin Menonaktikan Akun : \n<?php echo $keluar['nama_petugas'];?>');" href="?nonaktif=<?php echo $keluar['id_petugas'];?>" class="btn btn-danger">Nonaktifkan</span></a>
                         <?php } ?>
-                        <a title="Ubah" href="?ubah_petugas=<?php echo $keluar['id_petugas'];?>" class="btn btn-primary"><span class="fas fa-fw fa-pen"></span></a></td>
+                        <a title="Ubah" href="?ubah_petugas=<?php echo $keluar['id_petugas'];?>" class="btn btn-danger"><span class="fas fa-fw fa-pen"></span></a></td>
                     </tr>
 <?php
 }
@@ -258,6 +271,16 @@ if(isset($_GET['ubah_petugas'])){?>
             </div>
           </div>
   </div>
+        <!-- Footer -->
+        <footer class="sticky-footer text-light pt-5"style="background-color: #d30404;">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; ANY 2021</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>

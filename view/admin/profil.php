@@ -45,7 +45,7 @@ $sql = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM petugas WHERE id
   <div id="wrapper">
 
    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
@@ -78,7 +78,13 @@ $sql = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM petugas WHERE id
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
-
+       <!-- Nav Item - Dashboard -->
+       <li class="nav-item pl-5">
+        <a class="nav-link">
+        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400">
+          <a href="index.php"><button class="btn text-white "><b>Dashboard</b></button></a>
+          </i>
+      </li>
     </ul>
     <!-- End of Sidebar -->
 
@@ -235,6 +241,7 @@ if(isset($_GET['berhasil'])){
                       <small>Nomor Telepon</small>
                       <input required="required" type="number" name="telp" class="form-control form-control-user" id="exampleInputPassword" value="<?= $sql['telp'];?>" placeholder="Nomor Telepon">
                     </div>
+                    
 <?php
 if(isset($_GET['berhasil'])){
   if($_GET['berhasil']=="keynotvalid"){

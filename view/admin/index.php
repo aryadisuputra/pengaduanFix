@@ -35,7 +35,7 @@ if(isset($_GET['logout'])) {
   <div id="wrapper">
 
    <!-- Sidebar -->
-    <ul class="navbar-nav bg-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-dark sidebar sidebar-dark accordion" id="accordionSidebar d-print-none">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -47,27 +47,17 @@ if(isset($_GET['logout'])) {
       </a>
       
 
-  <!-- Nav Item - User Information -->
-      <li class="nav-item dropdown no-arrow justify-content-center">
-              <a class="nav-link dropdown-toggle " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 animated--grow-in d-lg-inline text-gray-600 justify-content-center"><i class="fas fa-user fa-fw mr-2 text-gray-400"></i> <?= $data['nama_petugas'];?></span>
+       <!-- Nav Item - User Information -->
+       <li class="nav-item dropdown no-arrow justify-content-center">
+              <a class="nav-link dropdown-toggle justify-content-center " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                <span class="mr-2 animated--grow-in d-lg-inline text-gray-600 justify-content-center"><i class=" pl-5"></i> <?= $data['nama_petugas'];?></span>
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="profil.php">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profil
+                  Edit Profil
                 </a>
-                <a onclick="dark();" class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Tema Gelap (Beta)
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Keluar
-                </a>
-              </div>
             </li>
       
             <!-- Divider -->
@@ -134,6 +124,14 @@ if($data['level']=="admin"){
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
 
+       <!-- Nav Item - Tables -->
+       <li class="nav-item mt-5">
+          <a class="dropdown-item text-white " href="#" data-toggle="modal" data-target="#logoutModal">
+            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Keluar
+          </a>
+      </li>
+    </ul>
     </ul>
     <!-- End of Sidebar -->
 
@@ -168,13 +166,7 @@ if($data['level']=="admin"){
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
-
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-grey-800">Dashboard Petugas</h1>
-            <a href="print_report.php" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-table fa-sm text-white-50"></i> Lihat Laporan</a>
-          </div>
+        <div class="container-fluid mt-5">
 
           <!-- Content Row -->
           <div class="row">

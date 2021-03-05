@@ -69,12 +69,6 @@ if(isset($_GET['rejected'])){
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Edit Profil
                 </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Keluar
-                </a>
-              </div>
             </li>
 
 
@@ -142,6 +136,14 @@ if($data['level']=="admin"){
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
 
+       <!-- Nav Item - Tables -->
+       <li class="nav-item mt-5">
+          <a class="dropdown-item text-white " href="#" data-toggle="modal" data-target="#logoutModal">
+            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Keluar
+          </a>
+      </li>
+    </ul>
     </ul>
     <!-- End of Sidebar -->
 
@@ -184,7 +186,7 @@ if($data['level']=="admin"){
           <!-- !-- DataTales Example --> 
           <div class="card shadow mb-4 animated--grow-in">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Tabel Pengaduan Masyarakat</h6>
+            <a href="print_report.php" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-table fa-sm text-white-50"></i> Lihat Laporan</a>
             </div>
             <div class="card-body">
             <div class="table-responsive">
