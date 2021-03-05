@@ -47,15 +47,14 @@ if(isset($_GET['rejected'])){
   <div id="wrapper">
 
    <!-- Sidebar -->
-    <ul class="navbar-nav bg-dark sidebar sidebar-dark accordion" id="accordionSidebar">
-
+   <ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar d-print-none" style="background-color:#1f1039;">
        <!-- Sidebar - Brand -->
-       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
-       
-        </div>
+       <a class="sidebar-brand d-flex align-items-center justify-content-center my-5" href="#">
+      <img src="img/logo.png" class="img-fluid">
+        <div class="sidebar-brand-icon">
         
+        </div>
+
       </a>
 
    <!-- Nav Item - User Information -->
@@ -70,6 +69,7 @@ if(isset($_GET['rejected'])){
                   Edit Profil
                 </a>
             </li>
+
 
 
       <!-- Divider -->
@@ -205,14 +205,16 @@ if($data['level']=="admin"){
                   </thead>
             
                   <tbody>
+                  <?php $i = 0; ?>
                   <?php
-  $out = mysqli_query($koneksi, "SELECT * FROM pengaduan WHERE tujuan='1'");
+  $out = mysqli_query($koneksi, "SELECT * FROM pengaduan WHERE tujuan='3'");
   while($keluar = mysqli_fetch_array($out)){
+  $i;
 ?>
-
+<?php $i++; ?>
 
                     <tr>
-                      <td><?php echo $keluar['id_pengaduan'];?></td>
+                      <td><?php echo $i;?></td>
                       <td><?php echo $keluar['id_pengaduan'];?></td>
                       <td><?php echo $keluar['tgl_pengaduan'];?></td>
                       <td><?php echo $keluar['nik'];?></td>
@@ -220,8 +222,8 @@ if($data['level']=="admin"){
                       <td align="Center"><img src="../../file_upload/<?php echo $keluar['foto'];?>" style="width: 100px;height: auto;"></td>
                       <td><?php echo $keluar['status'];?></td>
                       <td>
-                        <a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?rejected=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>"  class="btn btn-success">Rejected</a>
-                        <a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?proses_selesai=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-success">Proses Selesai</a>
+                        <a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?rejected=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>"  class="btn btn-danger">Rejected</a>
+                        <a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?proses_selesai=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-primary">Proses Selesai</a>
                         <a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?sedang_diproses=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-success">Sedang Diproses</a>
                       </td>
 <?php

@@ -35,18 +35,16 @@ if(isset($_GET['logout'])) {
   <div id="wrapper">
 
    <!-- Sidebar -->
-    <ul class="navbar-nav bg-dark sidebar sidebar-dark accordion" id="accordionSidebar d-print-none">
+   <ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar d-print-none" style="background-color:#1f1039;">
+
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
-       
-        </div>
-        
+      <a class="sidebar-brand d-flex align-items-center justify-content-center my-5" href="#">
+      <img src="img/logo.png" class="img-fluid">
+        <div class="sidebar-brand-icon">       
+        </div> 
       </a>
       
-
        <!-- Nav Item - User Information -->
        <li class="nav-item dropdown no-arrow justify-content-center">
               <a class="nav-link dropdown-toggle justify-content-center " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >

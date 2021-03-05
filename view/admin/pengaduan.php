@@ -48,12 +48,13 @@ if(isset($_GET['rejected'])){
   <div id="wrapper">
 
    <!-- Sidebar -->
-    <ul class="navbar-nav bg-dark sidebar sidebar-dark accordion" id="accordionSidebar d-print-none">
+    <ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar d-print-none" style="background-color:#1f1039;">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+      <a class="sidebar-brand d-flex align-items-center justify-content-center my-5" href="#">
+      <img src="img/logo.png" class="img-fluid">
+        <div class="sidebar-brand-icon">
+        
         </div>
 
       </a>
@@ -62,12 +63,10 @@ if(isset($_GET['rejected'])){
       <li class="nav-item dropdown no-arrow justify-content-center">
               <a class="nav-link dropdown-toggle justify-content-center " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                 <span class="mr-2 animated--grow-in d-lg-inline text-gray-600 justify-content-center"><i class=" pl-5"></i> <?= $data['nama_petugas'];?></span>
-                
               </a>
-              
               <!-- Dropdown - User Information -->
-
-                <a class="btn pl-5" href="profil.php">
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="profil.php">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Edit Profil
                 </a>
@@ -193,7 +192,7 @@ if(isset($_GET['berhasil'])){
 ?>
                     <div class="form-group">
                       <div class="small">
-                        <center><b align="center" class="text-success">1 Pengaduan telah Selesai !</b></center>
+                        <center><b align="center" class="text-success">Aksi telah Disimpan !</b></center>
                       </div>
                     </div>
 <?php
@@ -218,14 +217,16 @@ if(isset($_GET['berhasil'])){
                   </thead>
             
                   <tbody>
+                  <?php $i = 0; ?>
                   <?php
   $out = mysqli_query($koneksi, "SELECT * FROM pengaduan WHERE tujuan='1'");
   while($keluar = mysqli_fetch_array($out)){
+    $i;
 ?>
-
+<?php $i++; ?>
 
                     <tr>
-                      <td><?php echo $keluar['id_pengaduan'];?></td>
+                      <td><?php echo $i;?></td>
                       <td><?php echo $keluar['id_pengaduan'];?></td>
                       <td><?php echo $keluar['tgl_pengaduan'];?></td>
                       <td><?php echo $keluar['nik'];?></td>

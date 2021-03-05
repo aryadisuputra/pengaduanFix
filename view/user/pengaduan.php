@@ -40,66 +40,56 @@ if(isset($_GET['logout'])) {
 </head>
 
 <body id="page-top">
-
-  <!-- Page Wrapper -->
   <div id="wrapper">
-    <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
-      <!-- Main Content -->
       <div id="content" mb-5>   
         <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #d30404;">
           <div class="container-fluid">
-          <img src="img/pengaduan_online.png" class="img-fluid" >
-          <img src="img/bantuan.png" class="img-fluid" >
-            <!-- <span class="navbar-brand mb-0 h1">BANTUAN</span> -->
+            <img src="img/pengaduan_online.png" class="img-fluid" >
+            <img src="img/bantuan.png" class="img-fluid" >
           </div>
         </nav>
-         <!-- Outer Row -->
-    <div class="row justify-content-center animated--grow-in">
-
-<div class="col-xl-7 col-lg-10 col-md-9">
-
-  <div class="card o-hidden border-0 shadow-lg my-5">
-    <div class="card-body p-0">
-     <!-- Nested Row within Card Body -->
-     <div class="row ">
-            <div class="col-lg  mx-5 my-5">
-              <div class="p-5 ">
-                <div class="card">
-                  <div class="card-body" style="background-color: #d30404;">
-                    <h4 class=" text-white display-6"style="background-color: #d30404;">Sampaikan Laporan Anda</h4>
-                  </div>
-                </div>       
-                <form method="post" action="" enctype="multipart/form-data">
-                <p class="text-dark">Pilih Tipe Laporan</p>
-                <td>
-                  <label class="btn btn-outline-danger mr-5"required="required" for="danger-outlined" style="width: 25%;"><input type="radio" class="btn-check" name="tujuan" value="1" >Pengaduan</label>
-                  <label class="btn btn-outline-danger mr-5" required="required"for="danger-outlined" style="width: 25%;"><input type="radio" class="btn-check" name="tujuan" value="2" >Aspirasi</label>
-                  <label class="btn btn-outline-danger" required="required"for="danger-outlined" style="width: 30%;"><input type="radio" class="btn-check" name="tujuan" value="3" >Permintaan Informasi</label>
-                </td>
-                <h6 class="mt-3 mb-5">Perhatikan Cara Menyampaikan PENGADUAN Yang Baik dan Benar</h6>
-                <div class="form-group my-3">
-                  <input type="text" required="required" name="nik" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp"  value="" placeholder="Ketik NIK Anda *">
-                </div class="form-group">
-                <div class="form-group my-3">
-                  <input type="text" required="required" name="judul" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp"  value="" placeholder="Ketik Judul Laporan Anda *">
-                </div>
-                <div class="form-group my-3">
-                  <textarea type="text" required="required" name="isi" class="form-control form-control-user" id="exampleInputPassword" placeholder="Ketik Isi Laporan Anda *"></textarea>
-                </div>                      
-                <div class="form-group">
-                <input required="required" type="file" name="gambar" class="btn btn-secondary" />
-                </div>
-</div>
+        <div class="row justify-content-center animated--grow-in">
+          <div class="col-xl-7 col-lg-10 col-md-9">
+            <div class="card o-hidden border-0 shadow-lg my-5">
+              <div class="card-body p-0">
+                <div class="row ">
+                  <div class="col-lg  mx-5 my-5">
+                    <div class="p-5 ">
+                      <div class="card">
+                        <div class="card-body" style="background-color: #d30404;">
+                          <h4 class=" text-white display-6"style="background-color: #d30404;">Sampaikan Laporan Anda</h4>
+                        </div>
+                      </div>       
+                      <form method="post" action="" enctype="multipart/form-data">
+                        <p class="text-dark">Pilih Tipe Laporan</p>
+                        <td>
+                          <label class="btn btn-outline-danger mr-5"required="required" for="danger-outlined" style="width: 25%;"><input type="radio" class="btn-check" name="tujuan" value="1" >Pengaduan</label>
+                          <label class="btn btn-outline-danger mr-5" required="required"for="danger-outlined" style="width: 25%;"><input type="radio" class="btn-check" name="tujuan" value="2" >Aspirasi</label>
+                          <label class="btn btn-outline-danger" required="required"for="danger-outlined" style="width: 30%;"><input type="radio" class="btn-check" name="tujuan" value="3" >Permintaan Informasi</label>
+                        </td>
+                        <h6 class="mt-3 mb-5">Perhatikan Cara Menyampaikan PENGADUAN Yang Baik dan Benar</h6>
+                        <div class="form-group my-3">
+                          <input type="text" required="required" name="nik" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp"  value="" placeholder="Ketik NIK Anda *">
+                        </div>
+                        <div class="form-group my-3">
+                          <input type="text" required="required" name="judul" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp"  value="" placeholder="Ketik Judul Laporan Anda *">
+                        </div>
+                        <div class="form-group my-3">
+                          <textarea type="text" required="required" name="isi" class="form-control form-control-user" id="exampleInputPassword" placeholder="Ketik Isi Laporan Anda *"></textarea>
+                        </div>                      
+                        <div class="form-group">
+                          <input required="required" type="file" name="gambar" class="btn btn-secondary" />
+                        </div>
 <?php
   if(isset($_GET['berhasil'])){
     if($_GET['berhasil']=="ajukan"){
 ?>
-                      <div class="form-group">
-                        <div class="small">
-                          <center><b align="center" class="text-primary">Pengaduan anda Berhasil diajukan !</b></center>
+                        <div class="form-group">
+                          <div class="small">
+                            <center><b align="center" class="text-primary">Pengaduan anda Berhasil diajukan !</b></center>
+                          </div>
                         </div>
-                      </div>
 <?php
     }
   }
@@ -108,11 +98,11 @@ if(isset($_GET['logout'])) {
   if(isset($_GET['berhasil'])){
     if($_GET['berhasil']=="maxsend"){
 ?>
-                      <div class="form-group">
-                        <div class="small">
-                          <center><b align="center" class="text-danger">Pengaduan dibatalkan secara Otomatis, anda hanya dapat mengajukan Pengaduan sekali dalam sehari !</b></center>
+                        <div class="form-group">
+                          <div class="small">
+                            <center><b align="center" class="text-danger">Pengaduan dibatalkan secara Otomatis, anda hanya dapat mengajukan Pengaduan sekali dalam sehari !</b></center>
+                          </div>
                         </div>
-                      </div>
 <?php
     }
   }
@@ -121,41 +111,33 @@ if(isset($_GET['logout'])) {
   if(isset($_GET['berhasil'])){
     if($_GET['berhasil']=="gambar_null"){
 ?>
-                      <div class="form-group">
-                        <div class="small">
-                          <center><b align="center" class="text-danger">Wajib Masukan Bukti Gambar !</b></center>
+                        <div class="form-group">
+                          <div class="small">
+                            <center><b align="center" class="text-danger">Wajib Masukan Bukti Gambar !</b></center>
+                          </div>
                         </div>
-                      </div>
 <?php
     }
   }
 ?>
-                      <input type="submit"  onclick="return confirm('Kirim Pengaduan ini ?');" name="pengaduan" value="Lapor" class="btn btn-primary btn-user btn-block"style="background-color: #d30404; font-size:20px;">
-                    </form>
+                        <input type="submit"  onclick="return confirm('Kirim Pengaduan ini ?');" name="pengaduan" value="Lapor" class="btn btn-primary btn-user btn-block"style="background-color: #d30404; font-size:20px;">
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-  </div>
-  </div>
-  <!-- /.container-fluid -->
 
+</div>
+<footer class="sticky-footer text-light pt-5"style="background-color: #d30404;">
+  <div class="container my-auto">
+    <div class="copyright text-center my-auto">
+      <span>Copyright &copy; ANY 2021</span>
+    </div>
   </div>
-  <!-- End of Main Content -->
-
-      <!-- Footer -->
-      <footer class="sticky-footer text-light pt-5"style="background-color: #d30404;">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; ANY 2021</span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
-
+</footer>
     </div>
     <!-- End of Content Wrapper -->
 

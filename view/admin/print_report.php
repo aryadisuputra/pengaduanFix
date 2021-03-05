@@ -57,14 +57,17 @@ auth_petugas();
                   </thead>
             
                   <tbody>
+                  <?php $i = 0; ?>
                   <?php
   $out = mysqli_query($koneksi, "SELECT * FROM pengaduan WHERE tujuan='1'");
   while($keluar = mysqli_fetch_array($out)){
+    $i;
 ?>
+<?php $i++; ?>
 
 
                     <tr>
-                      <td><?php echo $keluar['id_pengaduan'];?></td>
+                      <td><?php echo $i;?></td>
                       <td><?php echo $keluar['id_pengaduan'];?></td>
                       <td><?php echo $keluar['tgl_pengaduan'];?></td>
                       <td><?php echo $keluar['nik'];?></td>
