@@ -31,7 +31,7 @@ if(isset($_GET['logout'])) {
 
 <body id="page-top">
 
-  <!-- Page Wrapper -->
+  <!-- Page Wrapper
   <div id="wrapper">
 
     <!-- Sidebar -->
@@ -121,7 +121,7 @@ if(isset($_GET['logout'])) {
                 </button>
               </div>
             </div>
-          </form>
+          </form> -->
 
         <!-- Topbar Navbar -->
 <?php include("header/topbar.php");?>

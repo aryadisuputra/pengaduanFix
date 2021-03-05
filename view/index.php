@@ -26,35 +26,37 @@ if(isset($_POST['login'])){
   <link href="admin/css/sb-admin-2.css" rel="stylesheet">
 
 </head>
+      <div id="content" mb-5>   
+        <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #d30404;">
+          <div class="container-fluid">
+          <img src="img/pengaduan_online.png" class="img-fluid" >
+          <img src="img/bantuan.png" class="img-fluid" >
+            <!-- <span class="navbar-brand mb-0 h1">BANTUAN</span> -->
+          </div>
+        </nav>
 
 <body class="bg-register-image">
-<div style="position: absolute;top: 0;bottom: 0;left: 0;right: 0;background-color: black;opacity: 0.6;"></div>
+<div style="position: absolute;top: 0;bottom: 0;left: 0;right: 0;"></div>
   <div class="container">
+  
 
     <!-- Outer Row -->
     <div class="row justify-content-center">
-
-      <div class="col-xl-12 col-lg-12 col-md-9">
+      <div class="d-flex justify-content-end">
         <div class="card o-hidden border-0 shadow-lg my-5">
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
-            <div class="row">
-              <div class="col-lg-7 d-none d-lg-block bg-login-image">
-                <div style="text-shadow: 0 40px 60px;" class="text-light animated--grow-in col-lg d-lg-block justify-content-center container p-5">
-                  <h2><b>Layanan Pengaduan Masyarakat</b></h2>
-                  <p>Desa Cikampek Utara, Kecamatan Kotabaru Karawang</p>
-                </div>
-              </div>
-              <div class="col-lg-5">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4 animated--grow-in">Selamat Datang !</h1>
+                    <h1 class="h4 text-gray-900 mb-4 animated--grow-in">LOGIN</h1>
                   </div>
                   <form method="POST" action="">
-                    <div class="mt-5 form-group">
+                    <div class=" form-group">
+                    <p class="h6">Username</p>
                       <input type="text" name="username" class="form-control form-control-user" id="exampleInputEmail" value="<?php if(isset($_COOKIE['ingatkan'])){ echo $_COOKIE['ingatkan']; }?>" aria-describedby="emailHelp" placeholder="Username">
                     </div>
                     <div class="form-group">
+                    <p class="h6">Password</p>
                       <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
                     </div>
                     <div class="custom-control custom-checkbox small">
@@ -90,7 +92,7 @@ if(isset($_POST['login'])){
 <?php
   if(isset($_GET['validation'])){
     if($_GET['validation']=="akun_nonaktif"){
-?>
+?> -->
                     <div class="form-group">
                       <div class="small">
                         <center><b align="center" class="text-danger">Akun anda sedang dinonaktifkan !</b></center>
@@ -100,7 +102,7 @@ if(isset($_POST['login'])){
     }
   }
 ?>
-                    <input type="submit" name="login" value="Masuk" class="mt-4 btn btn-primary btn-user btn-block">
+                    <input type="submit" name="login" value="LOGIN" class="mt-4 btn btn-primary btn-user btn-block">
                   </form>
                   <hr/>
                   <div class="text-center">
@@ -109,16 +111,15 @@ if(isset($_POST['login'])){
                 </div>
               </div>
             </div>
-          </div>
         </div>
 
-      </div>
+
 
     </div>
   </div>
 
 <!-- POP UP UPDATE PROGRAM (Hapus jika mengganggu) -->
-<script type="text/javascript">window.onload = function(){document.getElementById('tombol').click();}</script>
+<!-- <script type="text/javascript">window.onload = function(){document.getElementById('tombol').click();}</script>
 <input id="tombol" data-toggle="modal" data-target="#p" type="hidden">
 <div class="modal fade" id="p" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
