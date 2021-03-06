@@ -199,7 +199,7 @@ if($data['level']=="admin"){
           <!-- DataTales Example -->
           <div class="card shadow mb-4 animated--grow-in">
             <div class="card-header py-3 ">
-            <a href="print_report.php" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-table fa-sm text-white-50"></i> Lihat Laporan</a>
+            <a href="print_report2.php" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-table fa-sm text-white-50"></i> Lihat Laporan</a>
             </div>
             <div class="card-body">
             <div class="table-responsive">
