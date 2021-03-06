@@ -58,6 +58,11 @@ if(isset($_POST['login'])){
                     <h1>Selamat Datang Di</h1>
                     <h1>Portal Pelayanan</h1>
                     <h1>Pengaduan Online</h1>
+                    <!-- <div class="tombol">
+                      <a href="user/pengaduan.php" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn btn-danger shadow-sm"> Ajukan Pengaduan</a>
+                    </div> -->
+                </div>
+                <div class="containertxt">
                 </div>
 
                 <div class="containerbxt">
@@ -80,22 +85,27 @@ if(isset($_POST['login'])){
                 </div>
             </div>
 
+
             <div class="col-lg-6 col-md-4 form-container">
                 <div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box text-center">
-                    <!-- <div class="logo">
-                        <img src="image/Lambang_Kabupaten_Buleleng.png" alt="" style="width: 100px;">
-                    </div> -->
+                    <div class="logo">
+                        <img src="../vendor/Lambang_Kabupaten_Buleleng.png" alt="" style="width: 100px;">
+                    </div> 
+                    <form method="POST" action="">
                     <div class="container-box">
                         <h1 id="logitxt">LOGIN</h1>
-                        <div class="inputan1">
-                            <p>Username</p>
-                            <input type="text" name="username" placeholder="Username" id="exampleInputEmail" value="<?php if(isset($_COOKIE['ingatkan'])){ echo $_COOKIE['ingatkan']; }?>" style="font-family: FontAwesome;">
-                        </div>
-                        <div class="inputan2">
-                            <p>Password</p>
-                            <input type="password" name="password" id="exampleInputPassword" placeholder="Password" style="font-family: FontAwesome;">
-                            <a href="#" id="lupa"><p>Lupa Password/Username</p></a>
-                        </div>
+                        <div class=" form-group inputan1">
+                    <p class="h6">Username</p>
+                      <input type="text" name="username" class="form-control form-control-user" id="exampleInputEmail" value="<?php if(isset($_COOKIE['ingatkan'])){ echo $_COOKIE['ingatkan']; }?>" aria-describedby="emailHelp" placeholder="Username">
+                    </div>
+                    <div class="form-group inputan2">
+                    <p class="h6">Password</p>
+                      <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                    </div>
+                    <div class="custom-control custom-checkbox small">
+                        <input type="checkbox" name="ingatkan" class="custom-control-input" id="customCheck">
+                        <label class="custom-control-label" for="customCheck">Ingatkan Saya</label>
+                    </div>
 <?php
   if(isset($_GET['validation'])){
     if($_GET['validation']=="failed"){
@@ -135,42 +145,87 @@ if(isset($_POST['login'])){
     }
   }
 ?>
-                        <div class="tombol">
-                            <button type="button" name="login" value="LOGIN" class="btn" data-toggle="modal" data-target="#exampleModal">Log in</button>
-                        </div>
-                    </div>
+                    <input type="submit" name="login" value="LOGIN" class="mt-4 btn btn-primary btn-user btn-block">
+                  </form>
+                  <hr/>
+                  <div class="text-center">
+                    <!-- <a class="small" href="register.php">Buat Akun!</a> -->
+                  </div>
                 </div>
+              </div>
             </div>
         </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<
+
+
+    </div>
+  </div>
     </div>
 
+    </div>
+  </div>
+</div>
+  
 
+   
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- POP UP UPDATE PROGRAM (Hapus jika mengganggu) -->
+<!-- <script type="text/javascript">window.onload = function(){document.getElementById('tombol').click();}</script>
+<input id="tombol" data-toggle="modal" data-target="#p" type="hidden">
+<div class="modal fade" id="p" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Hai, Mari Kita Mulai !</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        - Update edit Profil.<br/>
+        - Update Ubah Password.<br/>
+        - Update Opsi Nonaktifkan Akun Petugas (KHUSUS ADMIN).<br/>
+        - Update Print Laporan Petugas/Admin.<br/>
+        <br/>
+        <br/>
+        (SILAHKAN GUNAKAN UNTUK REFERENSI)<br/>
+        Jika ada Kesalahan Program Hubungi via Whatsapp 089650007015
+      </div>
+      <div class="modal-footer">
+        Layanan Pengaduan Masyarakat Versi 6 (FINAL)
+      </div>
+    </div>
+  </div>
+</div>
+<!-- AKHIR KODE POP UP UPDATE PROGRAM -->
 
   <!-- Bootstrap core JavaScript-->
   <script src="admin/vendor/jquery/jquery.min.js"></script>
