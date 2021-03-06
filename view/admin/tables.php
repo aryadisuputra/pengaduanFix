@@ -73,7 +73,7 @@ if(isset($_GET['rejected'])){
    <!-- Nav Item - User Information -->
    <li class="nav-item dropdown no-arrow justify-content-center">
               <a class="nav-link dropdown-toggle justify-content-center " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                <span class="mr-2 animated--grow-in d-lg-inline text-gray-600 justify-content-center"><i class=" pl-5"></i> <?= $data['nama_petugas'];?></span>
+                <span class="mr-2 animated--grow-in d-lg-inline text-gray-600 justify-content-center"><i class=" "></i> <?= $data['nama_petugas'];?></span>
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

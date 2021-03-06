@@ -26,27 +26,45 @@ if(isset($_POST['login'])){
   <link href="admin/css/sb-admin-2.css" rel="stylesheet">
 
 </head>
-      <div id="content" mb-5>   
-        <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #d30404;">
-          <div class="container-fluid">
-          <img src="img/pengaduan_online.png" class="img-fluid" >
-          <img src="img/bantuan.png" class="img-fluid" >
-            <!-- <span class="navbar-brand mb-0 h1">BANTUAN</span> -->
-          </div>
-        </nav>
+    
 
-<body class="bg-register-image">
+<body class="bg-login-image">
+  <section id="header">
+        <nav class="navbar navbar-expand-lg navbar-light "style="background-color: #d30404;">
+              <img src="img/pengaduan_online.png" class="img-fluid" >
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+              </li>
+              <li class="nav-item">
+              </li>
+              <li class="nav-item">
+                </li>
+            </ul>
+                <a class="navbar-brand text-white" href="#">BANTUAN</a>
+        </div>
+        </nav>
+  </section>
 <div style="position: absolute;top: 0;bottom: 0;left: 0;right: 0;"></div>
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col">
-    </div>
-    <div class="col-md-auto">
+      <div class="col-md-6 ustify-content-center mt-5 p-5" style="font-size: 50px ;">
+        <p>SELAMAT DATANG DI</p>
+        <p>PORTAL LAYANAN</p>
+        <p>PENGADUAN ONLINE</p>
+      </div>
+      <div class="col-md-1">
+      </div>
+  <div class="col-md-3">
        <!-- Outer Row -->
-    <div class="row justify-content-center">
+      <div class="container">
       <div class="d-flex justify-content-end">
         <div class="card o-hidden border-0 shadow-lg my-5">
-          <div class="card-body p-0">
+          <div class="card-body">
             <!-- Nested Row within Card Body -->
                 <div class="p-5">
                   <div class="text-center">
@@ -108,11 +126,12 @@ if(isset($_POST['login'])){
                   </form>
                   <hr/>
                   <div class="text-center">
-                    <a class="small" href="register.php">Buat Akun!</a>
+                    <!-- <a class="small" href="register.php">Buat Akun!</a> -->
                   </div>
                 </div>
               </div>
             </div>
+        </div>
         </div>
 
 
@@ -120,8 +139,7 @@ if(isset($_POST['login'])){
     </div>
   </div>
     </div>
-    <div class="col col-lg-2">
-      3 of 3
+
     </div>
   </div>
 </div>
