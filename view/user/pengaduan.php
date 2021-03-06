@@ -1,10 +1,17 @@
 <?php 
 require("../../config/fungsi.php");
 if(isset($_POST['pengaduan'])){
-  $pathh = $_FILES['gambar']['tmp_name'];
+  $nama_file = $_FILES['gambar']['tmp_name'];
+  $ukuran_file = $_FILES['gambar']['size'];
   $target = '../../file_upload/'.$_FILES['gambar']['name'];
   if(isset($_FILES['gambar'])){
-      move_uploaded_file($pathh, $target);
+      if($ukuran_file < 40000){
+        die ("file berhasil");
+      }
+      else {
+        die ("gagal");
+      }
+      move_uploaded_file($nama_file, $target);
       ajukan($_POST['nik'], $_FILES['gambar']['tmp_name'], $_FILES['gambar']['name'], $_POST['isi'], $_POST['tujuan'], $_POST['judul']);
     }else{
       header("Location:?berhasil=gambar_null");
@@ -68,7 +75,7 @@ if(isset($_GET['logout'])) {
     </ul>
     <a class="navbar-brand text-white" href="#">BANTUAN</a>
   </div>
-</nav>s
+</nav>
         <div class="container">
 
 <!-- Outer Row -->

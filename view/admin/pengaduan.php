@@ -40,6 +40,10 @@ if(isset($_GET['rejected'])){
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css" rel="stylesheet">
+ <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -236,7 +240,7 @@ if(isset($_GET['berhasil'])){
                       <td>
                         <?php echo $keluar['status'];?></td>
                       <td>
-                        <a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?rejected=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>"  class="btn btn-danger">Rejected</a>
+                        <a onclick="rejected()" href="?rejected=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>"  class="btn btn-danger">Rejected</a>
                         <a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?sedang_diproses=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-primary">Sedang Diproses</a>
                         <a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?proses_selesai=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-success">Proses Selesai</a>
                       </td>
@@ -294,6 +298,16 @@ if(isset($_GET['berhasil'])){
     </div>
   </div>
 
+
+  <script type="text/javascript">
+
+  function sweetAlert() 
+  {  
+    	
+    Swal.fire('Ini adalah sweetalert Basic');
+  }
+
+</script>
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -310,6 +324,32 @@ if(isset($_GET['berhasil'])){
 
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
+
+
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
+
+ <script>
+	function rejected(){
+    swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this imaginary file!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        // proses hapus di sini bisa pakai ajax
+                        swal("Poof! Your imaginary file has been deleted!", {
+                            icon: "success",
+                        });
+                    } else {
+                        swal("Your imaginary file is safe!");
+                    }
+                });
+        }
+</script>
 
 </body>
 

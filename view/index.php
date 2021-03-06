@@ -24,6 +24,7 @@ if(isset($_POST['login'])){
   <!-- Custom styles for this template-->
   <!-- <link href="admin/css/sb-admin-2.min.css" rel="stylesheet"> -->
   <link href="admin/css/sb-admin-2.css" rel="stylesheet">
+  <link href="admin/css/depan.css" rel="stylesheet">
 
 </head>
     
@@ -49,40 +50,52 @@ if(isset($_POST['login'])){
         </div>
         </nav>
   </section>
-<div style="position: absolute;top: 0;bottom: 0;left: 0;right: 0;"></div>
-<div class="container-fluid">
-  <div class="row">
-      <div class="col-md-6 ustify-content-center mt-5 p-5" style="font-size: 50px ;">
-        <p>SELAMAT DATANG DI</p>
-        <p>PORTAL LAYANAN</p>
-        <p>PENGADUAN ONLINE</p>
-      </div>
-      <div class="col-md-1">
-      </div>
-  <div class="col-md-3">
-       <!-- Outer Row -->
-      <div class="container">
-      <div class="d-flex justify-content-end">
-        <div class="card o-hidden border-0 shadow-lg my-5">
-          <div class="card-body">
-            <!-- Nested Row within Card Body -->
-                <div class="p-5">
-                  <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4 animated--grow-in">LOGIN</h1>
-                  </div>
-                  <form method="POST" action="">
-                    <div class=" form-group">
-                    <p class="h6">Username</p>
-                      <input type="text" name="username" class="form-control form-control-user" id="exampleInputEmail" value="<?php if(isset($_COOKIE['ingatkan'])){ echo $_COOKIE['ingatkan']; }?>" aria-describedby="emailHelp" placeholder="Username">
+
+  <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 d-none d-md-block img-container">
+                <div class="containertxt">
+                    <h1>Selamat Datang Di</h1>
+                    <h1>Portal Pelayanan</h1>
+                    <h1>Pengaduan Online</h1>
+                </div>
+
+                <div class="containerbxt">
+                    <div class="container-fluid">
+                        <div class="row cstumer">
+                            <div class="col text-right cstt">
+                                <img src="../vendor/support.svg" alt="">
+                            </div>
+                            <div class="col-6 cntact">
+                              +628122930484
+                              <br>
+                              pengaduan-online@gmail.com
+                            </div>
+                            <div class="col">
+                                
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                    <p class="h6">Password</p>
-                      <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
-                    </div>
-                    <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" name="ingatkan" class="custom-control-input" id="customCheck">
-                        <label class="custom-control-label" for="customCheck">Ingatkan Saya</label>
-                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-4 form-container">
+                <div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box text-center">
+                    <!-- <div class="logo">
+                        <img src="image/Lambang_Kabupaten_Buleleng.png" alt="" style="width: 100px;">
+                    </div> -->
+                    <div class="container-box">
+                        <h1 id="logitxt">LOGIN</h1>
+                        <div class="inputan1">
+                            <p>Username</p>
+                            <input type="text" name="username" placeholder="Username" id="exampleInputEmail" value="<?php if(isset($_COOKIE['ingatkan'])){ echo $_COOKIE['ingatkan']; }?>" style="font-family: FontAwesome;">
+                        </div>
+                        <div class="inputan2">
+                            <p>Password</p>
+                            <input type="password" name="password" id="exampleInputPassword" placeholder="Password" style="font-family: FontAwesome;">
+                            <a href="#" id="lupa"><p>Lupa Password/Username</p></a>
+                        </div>
 <?php
   if(isset($_GET['validation'])){
     if($_GET['validation']=="failed"){
@@ -122,60 +135,42 @@ if(isset($_POST['login'])){
     }
   }
 ?>
-                    <input type="submit" name="login" value="LOGIN" class="mt-4 btn btn-primary btn-user btn-block">
-                  </form>
-                  <hr/>
-                  <div class="text-center">
-                    <!-- <a class="small" href="register.php">Buat Akun!</a> -->
-                  </div>
+                        <div class="tombol">
+                            <button type="button" name="login" value="LOGIN" class="btn" data-toggle="modal" data-target="#exampleModal">Log in</button>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
         </div>
-        </div>
-
-
-
-    </div>
-  </div>
     </div>
 
-    </div>
-  </div>
-</div>
-  
 
-   
 
-<!-- POP UP UPDATE PROGRAM (Hapus jika mengganggu) -->
-<!-- <script type="text/javascript">window.onload = function(){document.getElementById('tombol').click();}</script>
-<input id="tombol" data-toggle="modal" data-target="#p" type="hidden">
-<div class="modal fade" id="p" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Hai, Mari Kita Mulai !</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        - Update edit Profil.<br/>
-        - Update Ubah Password.<br/>
-        - Update Opsi Nonaktifkan Akun Petugas (KHUSUS ADMIN).<br/>
-        - Update Print Laporan Petugas/Admin.<br/>
-        <br/>
-        <br/>
-        (SILAHKAN GUNAKAN UNTUK REFERENSI)<br/>
-        Jika ada Kesalahan Program Hubungi via Whatsapp 089650007015
-      </div>
-      <div class="modal-footer">
-        Layanan Pengaduan Masyarakat Versi 6 (FINAL)
-      </div>
-    </div>
-  </div>
-</div>
-<!-- AKHIR KODE POP UP UPDATE PROGRAM -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <!-- Bootstrap core JavaScript-->
   <script src="admin/vendor/jquery/jquery.min.js"></script>
