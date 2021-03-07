@@ -325,7 +325,7 @@ if($data['level']=="admin"){
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Sutan Kumala 2019</span>
+            <span>Copyright &copy; ANY 2021</span>
           </div>
         </div>
       </footer>

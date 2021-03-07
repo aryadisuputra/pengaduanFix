@@ -231,14 +231,47 @@ if($data['level']=="admin"){
                       <td><?php echo $i;?></td>
                       <td><?php echo $keluar['id_pengaduan'];?></td>
                       <td><?php echo $keluar['tgl_pengaduan'];?></td>
+                      
                       <td><?php echo $keluar['nik'];?></td>
                       <td><?php echo $keluar['isi_laporan'];?></td>
                       <td align="Center"><img src="../../file_upload/<?php echo $keluar['foto'];?>" style="width: 100px;height: auto;"></td>
-                      <td><?php echo $keluar['status'];?></td>
+                      
+                       <!-- <?php
+            if($keluar['foto']=='image/jpg' || 'image/jpeg' || 'image/png'){?>
+              <td align="Center"><img src="../../file_upload/<?php echo $keluar['foto'];?>" style="width: 100px;height: auto;"></td>
+              <?php               }
+              else{
+          ?>
+                                  <td align="Center"><img src="../../file_upload/ahassmotor.jpg" style="width: 100px;height: auto;"></td>
+          <?php
+
+            }
+          ?> -->
+                      <!-- <td><?php echo $keluar['status'];?></td> -->
+<?php
+  if($keluar['status']=='Finish' ){?>
+              <td class="text-success"><?php echo $keluar['status'];?></td>
+              <?php               }
+              else if ($keluar['status']=='On Going' ){
+          ?>
+              <td class="text-warning"><?php echo $keluar['status'];?></td>
+          <?php
+
+            }
+            else if ($keluar['status']=='Rejected' ){
+              ?>
+                  <td class="text-danger"><?php echo $keluar['status'];?></td>
+              <?php
+                }
+            else {?>
+              <td class="text-primary"><?php echo $keluar['status'];?></td>
+         <?php }
+          ?>
                       <td>
-                        <a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?rejected=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>"  class="btn btn-danger">Rejected</a>
-                        <a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?proses_selesai=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-primary">Proses Selesai</a>
-                        <a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?sedang_diproses=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-success">Sedang Diproses</a>
+                        <a onclick="return confirm('Konfirmasi untuk Menyimpan Aksi');" href="?rejected=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>"  class="btn btn-danger">Rejected</a>
+                        <a onclick="return confirm('Konfirmasi untuk Menyimpan Aksi');" href="?sedang_diproses=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-warning">On Going</a>
+                        <a onclick="return confirm('Konfirmasi untuk Menyimpan Aksi');" href="?proses_selesai=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-success">Finish</a>
+
                       </td>
 <?php
 }
@@ -259,7 +292,7 @@ if($data['level']=="admin"){
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy;  ANY 2021</span>
           </div>
         </div>
       </footer>

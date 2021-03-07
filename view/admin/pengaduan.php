@@ -40,10 +40,6 @@ if(isset($_GET['rejected'])){
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
- <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css" rel="stylesheet">
- <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" rel="stylesheet">
-
 </head>
 
 <body id="page-top">
@@ -235,14 +231,44 @@ if(isset($_GET['berhasil'])){
                       <td><?php echo $keluar['tgl_pengaduan'];?></td>
                       <td><?php echo $keluar['nik'];?></td>
                       <td><?php echo $keluar['isi_laporan'];?></td>
-                      <td align="Center"><img src="../../file_upload/<?php echo $keluar['foto'];?>" style="width: 100px;height: auto;"></td>
+                      <!-- <td align="Center"><img src="../../file_upload/alert.png>" style="width: 100px;height: auto;"></td> -->
+                      <?php
+            if(isset($keluar['foto'])){?>
+              <td align="Center"><img src="../../file_upload/<?php echo $keluar['foto'];?>" style="width: 100px;height: auto;"></td>
+              <?php if($keluar['foto']=="gambar_null"){
+          ?>
+                                  <td align="Center"><img src="../../file_upload/<?php echo $keluar['foto'];?>" style="width: 100px;height: auto;"></td>
+          <?php
+              }
+            }
+          ?>
 
+                      <!-- <td>
+                        <?php echo $keluar['status'];?></td> -->
+                        <?php
+  if($keluar['status']=='Finish' ){?>
+              <td class="text-success"><?php echo $keluar['status'];?></td>
+              <?php               }
+              else if ($keluar['status']=='On Going' ){
+          ?>
+              <td class="text-warning"><?php echo $keluar['status'];?></td>
+          <?php
+
+            }
+            else if ($keluar['status']=='Rejected' ){
+              ?>
+                  <td class="text-danger"><?php echo $keluar['status'];?></td>
+              <?php
+                }
+            else {?>
+              <td class="text-primary"><?php echo $keluar['status'];?></td>
+         <?php }
+          ?>
                       <td>
-                        <?php echo $keluar['status'];?></td>
-                      <td>
-                        <a onclick="rejected()" href="?rejected=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>"  class="btn btn-danger">Rejected</a>
-                        <a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?sedang_diproses=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-primary">Sedang Diproses</a>
-                        <a onclick="return confirm('Konfirmasi untuk Melanjutkan Proses Penyelesaian');" href="?proses_selesai=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-success">Proses Selesai</a>
+                        <a onclick="return confirm('Konfirmasi untuk Menyimpan Aksi');" href="?rejected=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>"  class="btn btn-danger">Rejected</a>
+                        <a onclick="return confirm('Konfirmasi untuk Menyimpan Aksi');" href="?sedang_diproses=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-warning">On Going</a>
+                        <a onclick="return confirm('Konfirmasi untuk Menyimpan Aksi');" href="?proses_selesai=<?php echo $keluar['id_pengaduan'];?>&nik=<?php echo $keluar['nik'];?>" class="btn btn-success">Finish</a>
+
                       </td>
 <?php
 }
@@ -262,7 +288,7 @@ if(isset($_GET['berhasil'])){
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; ANY</span>
           </div>
         </div>
       </footer>
@@ -298,16 +324,6 @@ if(isset($_GET['berhasil'])){
     </div>
   </div>
 
-
-  <script type="text/javascript">
-
-  function sweetAlert() 
-  {  
-    	
-    Swal.fire('Ini adalah sweetalert Basic');
-  }
-
-</script>
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -324,32 +340,6 @@ if(isset($_GET['berhasil'])){
 
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
-
-
-
- <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
-
- <script>
-	function rejected(){
-    swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this imaginary file!",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        // proses hapus di sini bisa pakai ajax
-                        swal("Poof! Your imaginary file has been deleted!", {
-                            icon: "success",
-                        });
-                    } else {
-                        swal("Your imaginary file is safe!");
-                    }
-                });
-        }
-</script>
 
 </body>
 
