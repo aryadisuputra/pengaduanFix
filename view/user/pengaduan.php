@@ -5,12 +5,7 @@ if(isset($_POST['pengaduan'])){
   $ukuran_file = $_FILES['gambar']['size'];
   $target = '../../file_upload/'.$_FILES['gambar']['name'];
   if(isset($_FILES['gambar'])){
-      if($ukuran_file < 40000){
-        die ("file berhasil");
-      }
-      else {
-        die ("gagal");
-      }
+    
       move_uploaded_file($nama_file, $target);
       ajukan($_POST['nik'], $_FILES['gambar']['tmp_name'], $_FILES['gambar']['name'], $_POST['isi'], $_POST['tujuan'], $_POST['judul']);
     }else{
